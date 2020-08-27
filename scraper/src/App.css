@@ -1,0 +1,100 @@
+
+      html {
+        position: relative;
+        min-height: 100%;
+      }
+
+      body {
+        margin: 0;
+        padding: 0px;
+        font-size: 16px;
+        line-height: 24px;
+        font-family: 'Inter', sans-serif;
+        font-style: normal;
+        font-weight: 300;
+        color: rgb(33, 33, 33);
+      }
+
+      ul {
+        list-style-type: none;
+        text-align: center;
+        list-style-position: inside;
+      }
+
+      li {
+        border-color: white;
+        border-width: 2px;
+        border-style: solid;
+        padding: 5px 20px 5px 20px;
+        border-radius: 10px;
+        text-align: center;
+        padding-right: 65px;
+      }
+
+      .header {
+        background: #000000;
+        color: #ffffff;
+        padding: 15px;
+        box-sizing: border-box;
+        display: block;
+        position: relative;
+        height: 300px;
+        display: grid;
+        place-items: center;
+      }
+
+      .bod {
+        background: #ffffff;
+        color: #000000;
+        padding: 15px;
+        box-sizing: border-box;
+        display: block;
+        position: relative;
+        height: 300px;
+        display: grid;
+        place-items: center;
+      }
+
+      .header .logo {
+        position: absolute;
+        top: 40px;
+        left: 15px;
+        width: 100px;
+      }
+
+      .container {
+        margin: auto;
+        text-align: center;
+        display: flex;
+        flex-flow: row wrap;
+        padding: 30px;
+        justify-content: space-evenly;
+      }
+
+      .info {
+        border: #ccc solid 1px;
+        display: grid;
+        place-items: center;
+      }
+
+      .container .info h2 {
+        padding: 5px;
+        display: block;
+        position: relative;
+      }
+
+      .btn {
+          padding: 30px 30px 30px 30px;
+          background: linear-gradient(317.7deg,rgba(0,0,0,0.4) 0%,rgba(255,255,255,0.4) 105.18%),#EBECF0;
+          background-blend-mode: soft-light,normal;
+          box-shadow: -10px -10px 20px #FAFBFF, 10px 10px 20px #A6ABBD;
+          border-radius: 20px;
+      }
+
+      .btn:hover {
+        cursor: pointer;
+        background: #000000;
+        color: #ffffff;
+        box-shadow: none;
+      }
+
