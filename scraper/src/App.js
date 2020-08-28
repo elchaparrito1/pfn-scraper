@@ -12,7 +12,7 @@ const App = () => {
   const scrapeData = async () => {
     setJobStatus('Scraping');
 
-    const res = await axios.get('http://localhost:3001/api/scrape');
+    const res = await axios.get('/api/scrape');
     
     if (res.status === 201) {
       setJobStatus('Done');
