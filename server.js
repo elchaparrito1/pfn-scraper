@@ -33,5 +33,5 @@ app.get('*', (req, res) => {
 });
 
 app.listen(process.env.PORT || 3001, function() {
-  console.log(`Server is running on Port: ${port}`);
+  console.log(`Server is running on Port: ${process.env.PORT || 3001}`);
 });
