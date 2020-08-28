@@ -13,15 +13,13 @@ const App = () => {
     setJobStatus('Scraping');
 
     const res = await axios.get('http://localhost:3001/api/scrape');
-
-    console.log(res);
-
+    
     if (res.status === 201) {
       setJobStatus('Done');
-    setTime(`${new Date().toDateString()} at ${new Date().toLocaleTimeString()}`);
+      setTime(`${new Date().toDateString()} at ${new Date().toLocaleTimeString()}`);
 
-    setScrapedData(res.data.massagedData);
-    setCantScrape(res.data.cantScrape);
+      setScrapedData(res.data.massagedData);
+      setCantScrape(res.data.cantScrape);
     }
 
     if (res.status === 400) {
@@ -54,21 +52,21 @@ const App = () => {
           scrapedData.map((arr, index) => {
             let pathArray = arr[0].site.split('/');
             return (
-              <div className="info">
-                <h2 key={index}>{`${pathArray[2]}/`}</h2>
+              <div key={index} className="info">
+                <h2>{`${pathArray[2]}/`}</h2>
+                  <ul>
                 {
                   arr.map((obj, index) => {
                     return (
-                      <ul>
-                        <li>
-                          <a key={index} href={obj.link} target='_blank' rel="noopener noreferrer">
+                        <li key={index}>
+                          <a href={obj.link} target='_blank' rel="noopener noreferrer">
                             {obj.headline}
                           </a>
                         </li>
-                      </ul>
                     )
                   })
                 }
+                  </ul>
               </div>
             )
           })
