@@ -76,12 +76,12 @@ const App = () => {
         {
           cantScrape &&
 
-          cantScrape.map((arr) => {
+          cantScrape.map((arr, index) => {
             return (
               <div className="info">
                 <h2>Can't Scrape These URL Paths:</h2>
                   <ul>
-                    <li>
+                    <li key={index}>
                       {arr}
                     </li>
                   </ul>
