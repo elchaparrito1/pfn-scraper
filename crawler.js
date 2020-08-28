@@ -76,7 +76,7 @@ const initiateCrawlers = async () => {
       }
     }
   } catch (err) {
-   
+    await browser.close();
     return err;
   }
      

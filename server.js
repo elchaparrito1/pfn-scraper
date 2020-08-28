@@ -10,8 +10,6 @@ const scrapeRoute = express.Router();
 const app = express();
 require('dotenv').config({ path: '.env' });
 
-const port = process.env.PORT || 3001;
-
 app.use(express.static('public'));
 app.use(cors());
 app.use(bodyParser.json());
@@ -34,6 +32,6 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'scraper', 'build', 'index.html'));
 });
 
-app.listen(port, function() {
+app.listen(process.env.PORT || 3001, function() {
   console.log(`Server is running on Port: ${port}`);
 });
