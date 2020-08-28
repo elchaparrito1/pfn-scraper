@@ -35,6 +35,6 @@
     "robots-parser": "^2.1.1"
   },
   "engines": {
-    "node": "12.18.2"
+    "node": "8.2.1"
   }
 }
