@@ -38,7 +38,7 @@ const initiateCrawlers = async () => {
     for (let i = 0; i < urls.length; i++) {
       if (await checkRobotsTxt(urls[i][0])) {
         const browser = await puppeteer.launch({ 
-          headless: false,
+          headless: true,
           args: [
             '--no-sandbox',
             '--disable-setuid-sandbox',
