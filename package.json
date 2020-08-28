@@ -33,5 +33,8 @@
     "request": "^2.88.2",
     "request-promise": "^4.2.6",
     "robots-parser": "^2.1.1"
+  },
+  "engines": {
+    "node": "12.18.2"
   }
 }

@@ -17,7 +17,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // ... other app.use middleware
-app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, 'scraper', 'build')));
 
 scrapeRoute.route('/scrape').get(async (req, res) => {
   try {
@@ -31,7 +31,7 @@ scrapeRoute.route('/scrape').get(async (req, res) => {
 app.use('/api', scrapeRoute);
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  res.sendFile(path.join(__dirname, 'scraper', 'build', 'index.html'));
 });
 
 app.listen(port, function() {
