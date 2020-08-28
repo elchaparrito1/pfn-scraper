@@ -19,7 +19,6 @@ const initiateCrawlers = async () => {
   let notScrapable = [];
 
   const checkRobotsTxt = async (robotsUrl) => {
-    try {
       let pathArray = robotsUrl.split('/');
       let url = `${pathArray[0]}//${pathArray[2]}/robots.txt`;
       let robotText = await request.get(url);
@@ -28,13 +27,8 @@ const initiateCrawlers = async () => {
   
       return robots.isAllowed(robotsUrl, 'NewsBots')
   
-    } catch(err) {
-      
-      return err;
-    }
   }
 
-  try {
     for (let i = 0; i < urls.length; i++) {
       if (await checkRobotsTxt(urls[i][0])) {
         const browser = await puppeteer.launch({ 
@@ -49,7 +43,7 @@ const initiateCrawlers = async () => {
         const url = urls[i][0];
         const data = urls[i];
 
-        await page.goto(url, { waitUntil: 'networkidle2' });
+        await page.goto(url);
 
         const results = await page.evaluate((data) => {
 
@@ -75,16 +69,12 @@ const initiateCrawlers = async () => {
         notScrapable.push(urls[i][0]);
       }
     }
-  } catch (err) {
-    await browser.close();
-    return err;
-  }
+  
      
   return {newsData, notScrapable}
 };
 
 const massageData = async () => {
-  try {
     let news = await initiateCrawlers();
     let cantScrape = news.notScrapable;
     let massagedData = news.newsData;
@@ -108,10 +98,6 @@ const massageData = async () => {
 
     return {massagedData, cantScrape, crawlTime};
 
-  } catch(err) {
-    
-    return `Data massage error: ${err}`;
-  }
 }
 
 module.exports = massageData;
